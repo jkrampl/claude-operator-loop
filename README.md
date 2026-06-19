@@ -1,11 +1,11 @@
 # Claude Operator-Loop Skills
 
-A portable set of [Claude Code](https://claude.com/claude-code) skills that turn a project into a
-self-running "operator loop": a single Notion source of truth, a weekly cadence of research →
-review → tidy → draft, and clean session start/stop rituals. Industry-agnostic — the examples are
-generic; point it at any project.
+A portable set of [Claude Code](https://claude.com/claude-code) skills and slash commands that turn a
+project into a self-running "operator loop": a single Notion source of truth, a weekly cadence of
+research → review → tidy → draft, and clean session start/stop rituals. Industry-agnostic — the
+examples are generic; point it at any project.
 
-## What's inside
+## Skills (`~/.claude/skills/`)
 
 | Skill | What it does |
 |---|---|
@@ -22,24 +22,31 @@ generic; point it at any project.
 | `_AGENTS.md`, `_CLAUDE.md` | Shared agent / config templates. |
 | `_tools/` | Reference library of integration docs + CLI helpers (analytics, CRM, SEO, email, etc.). |
 
+## Slash commands (`~/.claude/commands/`)
+
+| Command | What it does |
+|---|---|
+| `/monday` | Run the weekly Monday sequence for the current project: workspace guard → resume-session → review → research. |
+| `/work [N]` | Execute the next N Claude-owned, unblocked tickets in priority order, stopping at any approval/external-write gate. |
+
 ## Install
 
-Copy the folders into your Claude Code skills directory:
-
 ```bash
-git clone <this-repo> claude-operator-loop
-cp -R claude-operator-loop/skills/* ~/.claude/skills/
+git clone https://github.com/jkrampl/claude-operator-loop
+cp -R claude-operator-loop/skills/*   ~/.claude/skills/
+cp -R claude-operator-loop/commands/* ~/.claude/commands/
 ```
 
-Then invoke any skill in Claude Code with its slash command, e.g. `/resume-session`, `/research`,
-`/tidy`. Start with `/deploy-project` to wire a project up from scratch.
+Then in Claude Code: invoke skills/commands by slash, e.g. `/resume-session`, `/research`, `/tidy`,
+`/monday`, `/work`. Start with `/deploy-project` to wire a project up from scratch.
 
 ## Notes
 
-- Examples use placeholder names (`Acme Co`, `ACME-RE`, `your-workspace`) — swap in your own.
+- Examples use placeholder names (`Acme Co`, `ACME-RE`, `your-workspace`, `ACME-001`) — swap in your own.
 - `_tools/` documents how to call third-party APIs; it reads credentials from environment variables,
   never hardcoded. Add your own keys via your shell env.
-- These skills assume a Notion workspace as the task/wiki source of truth (configurable).
+- These skills assume a Notion workspace as the task/wiki source of truth (configurable). The
+  commands expect a `.claude/notion-registry.json` in the project root for the workspace guard.
 
 ## License
 
