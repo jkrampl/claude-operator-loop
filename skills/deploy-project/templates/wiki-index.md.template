@@ -1,0 +1,78 @@
+# [Project Name] Wiki — Master Index
+
+Synthesized knowledge layer for [Project]. Source files stay in their original locations (`context/`, `data/`, `output/`); this wiki is the concise, cross-referenced overview.
+
+**Rule:** read the wiki first before hunting scattered files. Every page stays under 300 lines.
+
+---
+
+## Company
+
+- [`company/about.md`](company/about.md) — what the company does, history, positioning
+- [`company/registration.md`](company/registration.md) — legal entity, IČO/registration, imprint blocks
+- [`company/finance.md`](company/finance.md) — financial overview, filings, ratios (if public)
+- [`company/team.md`](company/team.md) — roster, roles, external resources
+- [`company/goals.md`](company/goals.md) — 3-month + 12-month priorities + KPIs
+- [`company/awards.md`](company/awards.md) — certifications, competition wins, recognitions
+- [`company/history.md`](company/history.md) — material past events, milestones
+
+## Customers
+
+- [`customers/segments.md`](customers/segments.md) — customer segmentation + share of revenue
+- [`customers/icp.md`](customers/icp.md) — ideal customer profile
+- [`customers/insights.md`](customers/insights.md) — research findings, patterns, voice-of-customer
+
+## Market
+
+- [`market/industry-overview.md`](market/industry-overview.md) — category size, trends, structural dynamics
+- [`market/competitors.md`](market/competitors.md) — tracked peers, positioning, share
+- [`market/regulatory.md`](market/regulatory.md) — compliance regime, standards, licensing
+- [`market/trends.md`](market/trends.md) — emerging patterns worth monitoring
+
+## Channels
+
+- [`channels/website.md`](channels/website.md) — domain structure, CMS, SEO status
+- [`channels/social.md`](channels/social.md) — per-platform presence + posting conventions
+- [`channels/email.md`](channels/email.md) — platform, list size, campaigns, automations
+- [`channels/paid-ads.md`](channels/paid-ads.md) — active campaigns, spend, ROAS
+- [`channels/press.md`](channels/press.md) — media contacts, past coverage, PR strategy
+- [`channels/[industry-specific]`](channels/) — [e.g. retail chains, wholesale, events]
+
+## Operations
+
+- [`operations/integrations.md`](operations/integrations.md) — connected MCPs + tools + auth
+- [`operations/recurring-register.md`](operations/recurring-register.md) — weekly/monthly/quarterly/annual tasks
+- [`operations/reports.md`](operations/reports.md) — branded report standard, templates
+- [`operations/sops.md`](operations/sops.md) — standard operating procedures
+- [`operations/[industry-specific]`](operations/) — [e.g. medal workflow, delivery workflow, launch workflow]
+
+## Finance (if not under Company)
+
+- [`finance/p-and-l.md`](finance/p-and-l.md) — historical + current
+- [`finance/unit-economics.md`](finance/unit-economics.md) — CAC, LTV, margin
+- [`finance/cash.md`](finance/cash.md) — runway, balance sheet highlights
+
+## Product (if applicable)
+
+- [`product/catalog.md`](product/catalog.md) — SKU/offering structure
+- [`product/roadmap.md`](product/roadmap.md) — what's shipping next
+- [`product/pricing.md`](product/pricing.md) — architecture + promotional policy
+
+## Archives
+
+- `archive/` — deprecated pages kept for reference
+
+---
+
+**Maintenance rules** (from `CLAUDE.md`):
+
+1. Read the wiki first.
+2. Update on change.
+3. Log every change to [`log.md`](log.md).
+4. Update this index when a page is added / renamed / removed.
+5. Cross-reference related pages.
+6. Date every metric that can go stale.
+7. Synthesize, don't duplicate.
+8. Under 300 lines per page; split if needed.
+
+**Page count:** [N] pages across [K] sections.

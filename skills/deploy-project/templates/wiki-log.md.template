@@ -1,0 +1,17 @@
+# Wiki log
+
+Chronological record of all wiki changes. Format:
+
+```
+## [YYYY-MM-DD] [action] | [description]
+```
+
+Action vocabulary: `create`, `update`, `refactor`, `delete`, `move`, `rename`, `decide`, `setup`, `fix`, `research`, `tidy`, `draft`, `discovery`.
+
+One entry per meaningful change. Append at the bottom of the file (newest last), or prepend at the top (newest first) — pick one convention at Phase 3 and stay consistent.
+
+---
+
+## [YYYY-MM-DD] setup | Wiki initialized during /deploy-project Phase 3
+
+[First session will overwrite this placeholder with the actual initial-setup entry.]

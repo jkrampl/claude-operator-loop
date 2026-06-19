@@ -1,0 +1,196 @@
+# Portfolio workspace — Notion database specification
+
+Use this as the blueprint for the CEO's Portfolio Notion workspace. Built during Phase 11 of `/deploy-project`, referenced every time a new project is registered into the portfolio.
+
+## Workspace
+
+**Name convention:** `[CEO-handle] — Portfolio`
+- Example: `Jakub — Portfolio`
+- Creates clear separation from any company workspace
+- Use your most-trusted Notion login (NOT a shared alias)
+
+**Access list:**
+- CEO (owner)
+- Up to 2 trusted delegates (typical: COO, chief of staff, family office principal) — document each delegate's role + date added
+
+**Workspace icon / cover:** optional but helpful — use something distinctly NOT tied to any single company brand, to reinforce this is a meta-layer.
+
+## Three required databases
+
+### Database 1: Projects
+
+One row per company you manage. The master index of the portfolio.
+
+| Property | Type | Description |
+|---|---|---|
+| **Name** | Title | Project handle (e.g. "ACME", "Clinic-X", "AlphaStudio") |
+| **Full company name** | Rich text | Legal entity name |
+| **Industry** | Select | Food & bev / Medical / Interior / Finance / Tech / Manufacturing / Family office / Professional services / Other |
+| **Stage** | Select | Pre-launch / Launch / Scale-up / Mature / Turnaround / Wind-down / Paused |
+| **Status** | Select | Green / Yellow / Red (CEO's gut-check on current health) |
+| **My role** | Select | Founder / CEO / Chairman / Director / Advisor / LP / Other |
+| **Ownership %** | Number | Your economic share if applicable |
+| **Notion workspace URL** | URL | Link to the company's Notion workspace |
+| **MEMORY.md path** | Rich text | Local path to the project's memory file |
+| **Project root folder** | Rich text | Local path to the project root |
+| **Current P0 count** | Number | Auto-updated by weekly digest |
+| **Current P1 count** | Number | Auto-updated by weekly digest |
+| **Team size** | Number | FTE (roughly) — internal only |
+| **Revenue band** | Select | Pre-revenue / <€100k / €100k-1M / €1M-5M / €5M-25M / €25M+ — internal only |
+| **Cash runway** | Select | <3 months / 3-6 months / 6-12 months / 12-24 months / 24+ months / N/A — internal only |
+| **Latest material event** | Rich text | Most recent big thing (launch, win, loss, pivot) — auto-updated |
+| **Next review** | Date | When CEO plans to sit down with this project deeply |
+| **Last digest** | Date | Auto-updated by weekly digest |
+| **Deployed date** | Date | When this project was onboarded via /deploy-project |
+| **Integration map note** | Rich text | Which integrations are authenticated for this project; Claude updates |
+| **Critical dependencies** | Rich text | Single-supplier risks, key-person risks, regulatory risks |
+| **Notes** | Rich text | CEO freetext |
+
+**Views:**
+
+- **All Projects (Table)** — default landing
+- **By Stage (Kanban)** — group by Stage
+- **By Industry (Kanban)** — group by Industry
+- **Needs attention (Filter)** — Status = Yellow OR Red, sort by Last digest
+- **Active only (Filter)** — Status != Paused AND Stage != Wind-down
+- **Review calendar (Timeline)** — sorted by Next review
+- **Map (Map view if available)** — for geo-distributed portfolio
+
+### Database 2: Weekly Digests
+
+One entry per project per week. Auto-populated every Monday morning by a scheduled task that queries each registered project's MEMORY.md + Notion Tasks DB + recent deliverables.
+
+| Property | Type | Description |
+|---|---|---|
+| **Name** | Title | `[YYYY-Www] [Project] digest` — e.g. "2026-W16 ACME digest" |
+| **Week starting** | Date | Monday of the week |
+| **Project** | Relation | Link to Projects DB row |
+| **One-line status** | Rich text | The headline — what happened this week |
+| **Key metric delta** | Rich text | Revenue / traffic / conversion / whatever matters most, this-week vs last-week |
+| **P0 opened** | Number | New P0s this week |
+| **P0 closed** | Number | P0s closed this week |
+| **P0 currently open** | Number | Snapshot at digest time |
+| **Material events** | Rich text | Meaningful changes (launches, losses, wins, regulatory, personnel) |
+| **Decisions needed from CEO** | Rich text | Anything flagged for CEO attention this week |
+| **Blocked items** | Rich text | What's stuck and why |
+| **Team / resourcing flag** | Rich text | Staffing issues, vendor issues, budget concerns |
+| **Wins worth noting** | Rich text | Positive developments |
+| **Deliverable highlights** | Rich text | Files produced this week worth noting |
+
+**Views:**
+
+- **This Week (Filter: Week starting = this week)** — the Monday-morning scan view
+- **By Project (Kanban grouped by Project)** — trajectory per company
+- **Timeline (Calendar by Week starting)** — pattern view over time
+- **Recent Wins (Filter: Wins populated)** — optimism surface
+- **Needs Decision (Filter: Decisions-needed populated)** — feeds `/review` input
+
+### Database 3: Escalations
+
+Cross-project issues needing CEO attention. Created manually or by Claude when ticket-level escalation criteria trigger.
+
+| Property | Type | Description |
+|---|---|---|
+| **Name** | Title | Concise issue headline |
+| **Date raised** | Date | When flagged |
+| **Project** | Relation | Link to Projects DB (may be multi-select if cross-project) |
+| **Type** | Select | Financial / Legal / Regulatory / Personnel / Vendor / Customer / Reputational / Operational / Strategic / Other |
+| **Severity** | Select | Critical / High / Medium / Low |
+| **Source** | Select | Weekly digest / Ad-hoc / Auto-triggered / Team escalation |
+| **CEO action needed** | Rich text | What the CEO must do |
+| **Context** | Rich text | Background |
+| **Deadline** | Date | When does this need to be handled by |
+| **Status** | Select | Open / In progress / Resolved / Deferred / Escalated further |
+| **Resolution notes** | Rich text | Filled when closed |
+| **Related tickets** | Rich text | IDs in project's Tasks DB |
+
+**Views:**
+
+- **Open (Filter: Status = Open / In progress)** — default
+- **By Severity (Board grouped by Severity)** — triage view
+- **By Project** — which company has most escalations (pattern spotting)
+- **Resolved this quarter** — learnings
+
+### Optional Database 4: Integration Map
+
+One entry per Claude / Notion / tool integration across the portfolio. Helps audit at the quarterly privacy check.
+
+| Property | Type | Description |
+|---|---|---|
+| **Name** | Title | `[Integration] on [Workspace]` — e.g. "Notion MCP on ACME workspace" |
+| **Integration** | Select | Notion / Shopify / GA4 / Stripe / [etc.] |
+| **Workspace / Account** | Rich text | Which workspace/account this integration is authenticated on |
+| **Project** | Relation | Link to Projects DB |
+| **Scope granted** | Rich text | Which pages/DBs/resources accessible |
+| **Authenticated on (date)** | Date | Install date |
+| **Last audit** | Date | Last privacy check |
+| **Next audit** | Date | Next quarterly check |
+| **Status** | Select | Active / Paused / Deprecated |
+| **Secrets storage** | Select | System keychain / env var / 1Password / other |
+
+**Views:**
+
+- **Active (Filter: Status = Active)** — default
+- **By Project** — integrations per company
+- **Audit due (Filter: Next audit < today + 14 days)** — quarterly anchor
+
+## Setup sequence (one-time per CEO)
+
+1. Create the workspace
+2. Create the four databases in order (Projects → Weekly Digests → Escalations → Integration Map)
+3. Configure all views
+4. Add Claude integration to the workspace + scope to the four DBs only
+5. Add first delegates if applicable
+6. Run smoke test: create one dummy project, one dummy digest, one dummy escalation; verify relationships work; delete dummies
+7. Document the workspace at `~/[CEO-handle]-portfolio/README.md` (if using file backup) — URL, member list, integration ID, setup date
+
+## Recurring cadence (scheduled tasks)
+
+- **Weekly digest run** — every Monday 07:00 local time, Claude queries each Projects-DB row, writes one Weekly Digests entry per project, updates Projects DB fields (P0 count, Last digest, Latest material event)
+- **Quarterly privacy audit** — first working day of Jan/Apr/Jul/Oct, Claude (or CEO manually) runs the privacy audit checklist from `references/portfolio-architecture.md`, logs results at `operations/privacy-audit-log.md`
+- **Annual portfolio review** — first working day of January, Claude generates an annual summary across all projects, ready for year-opening strategy session
+
+## Integration with `/deploy-project`
+
+When a new project is onboarded:
+
+1. Phase 11 checks: does a portfolio exist?
+2. If yes → registers the new project into the Projects DB (creates the row)
+3. If no → asks CEO whether to create the portfolio now (Phase 11 portfolio-setup)
+
+When an existing project wasn't onboarded via `/deploy-project` originally but should be in the portfolio now:
+
+1. Run `/deploy-project register-into-portfolio`
+2. Specify the project's local path, Notion workspace URL, memory path
+3. Skill populates the Projects DB row with best-guess values
+4. CEO reviews + confirms
+
+## Template content for the first Projects DB rows
+
+When setting up, pre-populate with your existing companies to avoid empty-DB paralysis. For each:
+
+- Name it
+- Fill Industry + Stage + Status (Green/Yellow/Red)
+- Fill My role + Ownership %
+- Leave metric fields empty — they auto-fill after first `/deploy-project register-into-portfolio` run
+
+## Digest format example
+
+Every Monday, Claude posts something like this into Weekly Digests for each project:
+
+```
+Name: 2026-W17 ACME digest
+Week starting: 2026-04-20
+Project: ACME
+One-line status: Packeta Shopify app deployed Monday; EU delivery now live across 7 markets. Legal policies published earlier. First agentic-ready state.
+Key metric delta: DTC traffic +12% WoW (seasonal), email open rate steady 38%
+P0 opened: 1 · P0 closed: 2 · P0 currently open: 3
+Material events: Packeta paid subscription active; ODR link removed site-wide (TECH-024 done)
+Decisions needed from CEO: Approve ACME-TECH-025 cookie consent engineering spend (~€1,500, External owner)
+Blocked items: ACME-OPS-042 (Palugyay acquisition date) waiting on board-archive check
+Team / resourcing flag: none
+Wins worth noting: First EU cross-border order within 24h of Packeta live
+Deliverable highlights: output/reports/260420 - ACME Packeta Deploy Summary.html
+```
+
+CEO scans all project digests in one view Monday morning. Total read time per week: 5-10 min across the whole portfolio.

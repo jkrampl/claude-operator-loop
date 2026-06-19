@@ -1,0 +1,94 @@
+# [CEO Role] Memory Index — [Project Name]
+
+## Company
+- [Legal entity] — [industry], [region / jurisdiction]
+- **Registered address:** [full address] · [registration ID]
+- [Ownership / governance summary, who is CEO, principal, etc.]
+- [Size / scale summary — without leaking internal figures]
+- [Revenue / financial summary IF public — otherwise omit]
+- [Headline business facts]
+
+## Digital State ([MONTH YEAR])
+- [Stack summary — what tools + platforms are live]
+- [Website + analytics + marketing platforms]
+- [Current maturity scores — e.g. marketing 4/10, SEO 2/10, etc.]
+
+## [Industry integration] (setup date)
+- [Integration summary — e.g. Shopify, EMR, ERP]
+- [Access summary]
+- [Scopes granted]
+- [Governance notes]
+
+## MCP Integrations ([N] connected)
+| Source | Server | Config |
+|--------|--------|--------|
+| [Integration] | [MCP name] | [Config pointer] |
+
+## Project tracker (single source of truth)
+- **Location:** Notion Tasks DB `[database_id]` (data source `[data_source_id]`)
+- **Start every conversation by checking [Backlog view / In review view / Kanban]**
+- Ticket ID format: `[PROJECT-PREFIX]-[CAT]-[###]`
+- Categories: [list]
+- [Count summary: N open + N done]
+
+## Active Projects
+- **[Project 1 name] (status)**: [Description, files, state]
+- **[Project 2 name] (status)**: [Description, files, state]
+
+## Priorities (updated [date])
+- P0: [Top blocker / most urgent]
+- P1: [Second-order priorities]
+- P2: [Nice-to-have]
+- [Deferred or parked items]
+
+## [Active major initiative section]
+- [Initiative details with pointers to master files]
+
+## Governance
+- [Approval gates summary — full detail in CLAUDE.md]
+- [Codified in CLAUDE.md]
+
+## Key IDs & Accounts
+- [Tool]: [Account / property ID]
+- [Tool]: [Account / property ID]
+- [Integration app IDs]
+
+## Domain & DNS
+- DNS: [Registrar] | Primary: `[domain]`
+- [Locale / subdomain rules if applicable]
+- Email auth: [SPF/DKIM/DMARC status]
+
+## Team/Agents
+**Active [N] agents:**
+- [Agent role] ([Model]): [ID]
+**Archived:** [list]
+**Config:** [setup summary]
+**Setup guide:** [path]
+
+## [Domain-specific sections — e.g. Email Marketing, POS, Clinical ops]
+- [Subsection 1]
+- [Subsection 2]
+
+## Session handoff docs
+- `context/sessions/[date] - [topic].md` — [what's in it]
+
+## Topic Memory Files
+- `[topic_file].md` — [one-line purpose]
+- `[feedback_file].md` — [rule / preference]
+- `[integration_file].md` — [integration notes]
+
+## Completed Work
+### [YYYY-MM-DD] — [Session theme]
+- ✅ **[Item]:** [description with file paths, numbers, key facts]
+- ✅ **[Item]:** [description]
+
+### [YYYY-MM-DD] — [Session theme]
+- ✅ ...
+
+## [Domain-specific persistent sections]
+- [e.g. SEO masterfile location, brand guidelines, pricing matrix]
+
+## Key Files
+- Structure: `STRUCTURE.md` | **Wiki: `context/wiki/index.md`**
+- [Other critical paths]
+- MCP config: `.mcp.json`

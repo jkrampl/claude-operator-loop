@@ -1,0 +1,182 @@
+# [PROJECT NAME] — Shared Agent Instructions
+
+[Replace bracketed placeholders throughout. Delete bracketed guidance comments before going live.]
+
+## Project identity
+
+- **Legal entity:** [Full legal name as registered]
+- **Trading name:** [If different from legal name]
+- **Legal form:** [a.s. / s.r.o. / Ltd / Inc / LLP / sole trader / trust]
+- **Registration ID:** [IČO / company number / EIN]
+- **Jurisdiction:** [Country, primary regulatory scope]
+- **Industry:** [Primary industry classification]
+- **What we do:** [One-sentence elevator pitch, customer-facing]
+
+## Content Quality: Avoid AI Writing Patterns
+
+All agents MUST follow these rules when writing any customer-facing or public content:
+
+1. **No AI-isms.** Do not use: delve, landscape (metaphor), tapestry, realm, paradigm, beacon, robust, comprehensive, cutting-edge, leverage, harness, pivotal, meticulous, navigate, foster, elevate, seamless, unleash, streamline, empower, game-changer, utilize, commence, endeavor, nestled, vibrant, thriving, showcasing.
+2. **No filler transitions.** Avoid: Moreover, Furthermore, Additionally, "In today's X", "In an era where", "It's worth noting", "In conclusion", "When it comes to", "At the end of the day".
+3. **No significance inflation.** Don't call routine things "pivotal moments" or "watershed moments." State what happened and let the reader judge.
+4. **No chatbot artifacts.** No "I hope this helps!", "Let's dive in!", "In this article, we will explore..."
+5. **No hollow intensifiers.** Cut: genuinely, truly, quite frankly, to be honest, let's be clear.
+6. **Plain verbs.** Use "is" and "has" instead of "serves as", "features", "boasts", "presents".
+7. **No em-dash overuse.** Max one per 1,000 words. Use commas or periods instead.
+8. **No synonym cycling.** Repeat the clearest word rather than rotating synonyms.
+9. **Sentence case headings.** Not Title Case For Every Word.
+10. **Write like a person.** Vary paragraph length. Lead with the point. Use deliberate fragments when natural. Skip promotional tourism-brochure prose.
+
+[ADD industry-specific banned words here. Examples below — delete what doesn't apply.]
+
+### Industry-specific content restrictions (MANDATORY)
+
+**[IF medical / healthcare]:**
+- No unverified health claims (cure, treat, reverse, heal, prevent disease)
+- Disclaimers required on any outcome-suggestive content
+- No before/after imagery without documented patient consent
+- Regulatory-aware terminology (EU MDR, FDA, local health authority)
+
+**[IF food & bev]:**
+- Allergens listed per local law (EU Reg 1169/2011 or equivalent)
+- No health claims beyond approved list (EU Reg 432/2012)
+- Origin claims (PDO, PGI, DOC, AVA, AOC) verified before use
+- [If alcohol:] Age-gate on site, no minors in marketing, responsible drinking messaging
+
+**[IF finance / investment]:**
+- No "investment advice" unless licensed
+- No "guaranteed returns" ever
+- Past performance disclaimer on any historical return figure
+- Client testimonials used only when permitted by regulator
+
+**[IF family office]:**
+- Default posture: no public content
+- Any exception requires explicit principal sign-off
+- Privately-identifiable info never referenced
+
+**[IF manufacturing / industrial]:**
+- Cite certifications only if current
+- No capacity claims beyond verified throughput
+- Customer + supplier names typically confidential
+
+[ADD project-specific banned/required terminology below.]
+
+### Project-specific writing rules
+
+- [Term the project always uses — e.g. ACME: "kyseliny" not "kyselinky"]
+- [Term the project never uses]
+- [Company facts — e.g. ACME: not "family winery", it's a joint-stock company]
+- [Capitalization rules, trademark use]
+
+## Governance: Content approval
+
+All [campaigns / marketing / customer-facing content] require **prior [board / CEO / principal] approval** before launch. This applies to:
+
+- Ad copy and creatives (Meta, Google, LinkedIn, any platform)
+- Email campaigns and sequences
+- Social media posts
+- Landing page copy
+- Blog posts
+- Press releases
+- [Industry-specific additions]
+
+**Exceptions (pre-approved, no per-item approval needed):**
+- SEO meta tags + meta descriptions
+- Alt text
+- Schema markup
+- Internal-only documents
+- [Project-specific exceptions]
+
+**Process:** Submit content for review via [Notion review / Paperclip / email / other] before any publish. Do not publish, schedule, or launch without approval. This is a hard gate.
+
+## Governance: Tool-write approval
+
+**No agent may use [Shopify / CMS / email platform / ad platform] write tools without explicit prior approval from [CEO/principal name].** This is absolute.
+
+**Writes requiring approval per use:**
+- [Create / update / delete] content
+- Send email campaigns
+- Launch ad campaigns
+- Modify pricing
+- Publish articles / blog posts / pages
+- Apply discounts
+- Create redirects
+- Any other operation that changes external-facing state
+
+**Read-only operations (no approval needed):**
+- Listing, querying, reporting
+- Analytics pulls
+- Inventory checks
+- Status monitoring
+
+**Process:** Prepare changes as a draft, present the exact change to [approver], execute only after receiving explicit approval in the conversation. "Pre-approved" or "standing approval" does not exist.
+
+## Internal link rules (website)
+
+[If applicable to project — delete if not web-based.]
+
+- **Primary domain:** `https://[domain]/{path}`
+- **[Alternate locale]:** `https://[domain]/[locale-prefix]/{path}` — MUST have `[locale-prefix]` prefix
+- Always use `https://` — never bare `www.`
+- [Collection / category URL conventions]
+- [Redirect rules]
+
+## Branded reports / deliverables
+
+When producing any analytical or strategic report as a deliverable for the [board / team / external], use the **branded report standard**.
+
+- **Standard doc:** `context/wiki/operations/reports.md`
+- **Template:** `context/templates/[template_file]`
+- **Reference example:** `output/reports/[example_file]`
+
+Required elements: [bilingual toggle / logo / chart style / color palette / sticky TOC / KPI cards / recommendations section with priority badges and ticket IDs]. Self-contained single file.
+
+## Wiki maintenance
+
+The company knowledge wiki lives at `context/wiki/`. It is the synthesized knowledge layer for all [project] operations.
+
+**Rules for all agents:**
+
+1. **Read the wiki first.** Before searching scattered files, check the relevant wiki page.
+2. **Update on change.** When new information arrives, update the relevant wiki page.
+3. **Log every change.** Append an entry to `context/wiki/log.md`. Format: `## [YYYY-MM-DD] action | description`
+4. **Update the index.** When a page is added, renamed, or removed, update `context/wiki/index.md`.
+5. **Cross-reference.** When updating one page, check if related pages also need updating.
+6. **Date all metrics.** Every number that can go stale must include the date it was recorded.
+7. **Synthesize, don't duplicate.** Wiki pages are concise summaries. Link to source files for full detail.
+8. **Under 300 lines per page.** If a page grows beyond this, split it.
+
+## Operator-loop skills
+
+This project uses the operator-loop skill family. Config files at `.claude/`:
+
+- **`/research`** — see `.claude/research.md`
+- **`/review`** — see `.claude/review.md`
+- **`/questions`** — see `.claude/questions.md`
+- **`/tidy`** — see `.claude/tidy.md`
+- **`/draft`** — see `.claude/draft.md`
+- **`wrap-session` / `resume-session`** — see `.claude/wrap-session.md`
+
+The skills follow the generic workflows at `~/.claude/skills/[skill]/SKILL.md` with project-specific overrides per the files above.
+
+## Ticket ownership (the 5-item closed list)
+
+Every Notion task ticket has one of these owners:
+
+- `Claude` — autonomous
+- `Claude (post-approval)` — CEO approves once then Claude executes
+- `CEO` — manual
+- `External` — dev / designer / vendor / specialist
+- `[Team member name]` — specific person
+
+## Ticket-everything rule
+
+Every emergent task (from a document, research, meeting, decision) MUST be immediately written to the Notion Tasks DB. No "pending creation". See `~/.claude/projects/-[escaped-project-path]/memory/feedback_ticket_everything.md`.
+
+## Public-content rule
+
+Any document, page, post, or asset that will be published externally contains ONLY information that is already on the public website or in mandatory public records. Internal figures (revenue, headcount, volumes, SKU counts, aggregate metrics, internal meta-notes) never leak. See `~/.claude/projects/-[escaped-project-path]/memory/feedback_public_content_only.md`.
+
+## [Industry-specific additional sections]
+
+[Add sections specific to the project's industry — e.g. delivery / logistics / regulatory cadence / certification / supply chain requirements.]
