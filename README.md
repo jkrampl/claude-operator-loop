@@ -18,6 +18,7 @@ examples are generic; point it at any project.
 | `wrap-session` | Persist project state at the end of a working session. |
 | `resume-session` | Reload the latest project state at the start of a session. |
 | `weekly-social` | Batch-prepare the week's social posts from a posting calendar. |
+| `avoid-ai-writing` | Audit and rewrite content to strip AI-writing tells (em-dash overuse, tricolons, promo puffery, etc.). |
 | `OPERATOR-LOOP.md` | The framework doc tying the loop together. |
 | `_AGENTS.md`, `_CLAUDE.md` | Shared agent / config templates. |
 | `_tools/` | Reference library of integration docs + CLI helpers (analytics, CRM, SEO, email, etc.). |
